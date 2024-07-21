@@ -1,0 +1,25 @@
+{
+    "name": "isomorphic-node",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "dev": "node server.js",
+        "build": "next build",
+        "start": "NODE_ENV=production node server.js"
+    },
+    "author": "Daniel Felicita",
+    "license": "ISC",
+    "dependencies": {
+        "@popperjs/core": "^2.9.3",
+        "bootstrap": "^5.3.3",
+        "cors": "^2.8.5",
+        "express": "^4.19.2",
+        "jquery": "^3.7.1",
+        "next": "^14.2.5",
+        "nodemailer": "^6.9.14",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "sass": "^1.77.8"
+    }
+}
