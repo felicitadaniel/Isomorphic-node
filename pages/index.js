@@ -6,6 +6,12 @@ const Home = () => {
     const [roles, setRoles] = useState([])
 
     useEffect(() => {
+        window.jQuery = $
+        window.$ = $
+
+        require('@/public/js/smoothscroll.js')
+        require('@/public/js/owl.carousel.min.js')
+
         const fetchContent = async () => {
             try {
                 const res = await fetch('/api/aboutme')
@@ -31,24 +37,58 @@ const Home = () => {
         $(function () {
             'use strict'
 
+            // $('.navbar .nav-link').on('click', function () {
+            //     $('.navbar-collapse').collapse('hide')
+            // })
+
             $(window).on('scroll', function () {
                 var b = $(window).scrollTop()
+
                 if (b > 72) {
                     $('.navbar').addClass('scroll')
                 } else {
                     $('.navbar').removeClass('scroll')
                 }
             })
-        })
 
-        return () => {
-            $(window).off('scroll')
-            $('.navbar .nav-link').off('click')
-        }
+            $('#testimonials-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    900: {
+                        items: 2,
+                    },
+                    1200: {
+                        items: 3,
+                        loop: false,
+                    },
+                },
+            })
+
+            $(function () {
+                $('.navbar .nav-link').on('click', function (event) {
+                    var $anchor = $(this)
+                    $('html, body')
+                        .stop()
+                        .animate(
+                            {
+                                scrollTop:
+                                    $($anchor.attr('href')).offset().top - 49,
+                            },
+                            500
+                        )
+                    event.preventDefault()
+                })
+            })
+        })
     }, [])
 
     return (
-        <div className="container">
+        <div className="container-fluid">
             {/* MENU BAR */}
             <nav className="navbar navbar-expand-lg">
                 <div className="container">
@@ -93,7 +133,7 @@ const Home = () => {
                                     href="#testimonials"
                                     className="nav-link smoothScroll"
                                 >
-                                    Reviews
+                                    References
                                 </a>
                             </li>
 
@@ -108,7 +148,11 @@ const Home = () => {
                         </ul>
 
                         <div className="mt-lg-0 mt-3 mb-4 mb-lg-0">
-                            <a href="#" className="custom-btn btn" download>
+                            <a
+                                href="/assets/Daniel_Felicita_Professional_Resume.pdf"
+                                className="custom-btn btn"
+                                download="Daniel_Felicita_Professional_Resume.pdf"
+                            >
                                 Download CV
                             </a>
                         </div>
@@ -150,7 +194,6 @@ const Home = () => {
             </section>
 
             {/* ABOUT */}
-
             <section className="about section-padding" id="about">
                 <div className="container">
                     <div className="row mb-5">
@@ -184,8 +227,8 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="row about-third">
-                        <div class="col-12">
-                            <h3 class="mb-5 text-center">Main Roles</h3>
+                        <div className="col-12">
+                            <h3 className="mb-5 text-center">Main Roles</h3>
                         </div>
                         <div className="col-lg-4 col-md-4 col-12">
                             <h4>{roles[0]?.title}</h4>
@@ -198,6 +241,260 @@ const Home = () => {
                         <div className="col-lg-4 col-md-4 col-12">
                             <h4>{roles[2]?.title}</h4>
                             <p>{roles[2]?.content}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* TESTIMONIAL */}
+            <section className="testimonials section-padding" id="testimonials">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <h3 className="mb-5 text-center">References</h3>
+
+                            <div
+                                className="owl-carousel owl-theme"
+                                id="testimonials-carousel"
+                            >
+                                <a
+                                    href="https://www.linkedin.com/in/nikunjchapadia/"
+                                    target="_blank"
+                                >
+                                    <div className="item">
+                                        <div className="testimonials-thumb d-flex">
+                                            <div className="testimonials-image">
+                                                <img
+                                                    src="/images/nikunj.jpeg"
+                                                    className="img-fluid"
+                                                    alt="testimonials image"
+                                                />
+                                            </div>
+
+                                            <div className="testimonials-info">
+                                                <h6 className="mb-0">
+                                                    Nikunj Chapadia
+                                                </h6>
+                                                <span>
+                                                    Project Lead<br></br>SIRIUS
+                                                    XM RADIO INC.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a
+                                    href="https://www.linkedin.com/in/henderruiz/"
+                                    target="_blank"
+                                >
+                                    <div className="item">
+                                        <div className="testimonials-thumb d-flex">
+                                            <div className="testimonials-image">
+                                                <img
+                                                    src="/images/hender.jpeg"
+                                                    className="img-fluid"
+                                                    alt="testimonials image"
+                                                />
+                                            </div>
+
+                                            <div className="testimonials-info">
+                                                <h6 className="mb-0">
+                                                    Hender Ruiz
+                                                </h6>
+                                                <span>
+                                                    Lead Project Manager
+                                                    <br></br>LIAL SYSTEMS SAS
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a
+                                    href="https://www.linkedin.com/in/nmedinam/"
+                                    target="_blank"
+                                >
+                                    <div className="item">
+                                        <div className="testimonials-thumb d-flex">
+                                            <div className="testimonials-image">
+                                                <img
+                                                    src="/images/nelson.jpeg"
+                                                    className="img-fluid"
+                                                    alt="testimonials image"
+                                                />
+                                            </div>
+
+                                            <div className="testimonials-info">
+                                                <h6 className="mb-0">
+                                                    Nelson Medina
+                                                </h6>
+                                                <span>
+                                                    Senior DevOps Engineer
+                                                    <br></br>
+                                                    Stocktwits, Inc.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a
+                                    href="https://www.linkedin.com/in/juan-miguel-echeverria-blanco-30ab27121/"
+                                    target="_blank"
+                                >
+                                    <div className="item">
+                                        <div className="testimonials-thumb d-flex">
+                                            <div className="testimonials-image">
+                                                <img
+                                                    src="/images/juan.jpeg"
+                                                    className="img-fluid"
+                                                    alt="testimonials image"
+                                                />
+                                            </div>
+
+                                            <div className="testimonials-info">
+                                                <h6 className="mb-0">
+                                                    Juan Echeverria
+                                                </h6>
+                                                <span>
+                                                    Systems Engineer<br></br>
+                                                    EPAM Systems, Inc.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* CONTACT */}
+            <section className="contact section-padding pt-0" id="contact">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-6 col-md-6 col-12">
+                            <form
+                                action="#"
+                                method="get"
+                                className="contact-form webform"
+                                role="form"
+                            >
+                                <div className="form-group d-flex flex-column-reverse">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="cf-name"
+                                        id="cf-name"
+                                        placeholder="Your Name"
+                                    />
+
+                                    <label
+                                        htmlFor="cf-name"
+                                        className="webform-label"
+                                    >
+                                        Full Name
+                                    </label>
+                                </div>
+
+                                <div className="form-group d-flex flex-column-reverse">
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        name="cf-email"
+                                        id="cf-email"
+                                        placeholder="Your Email"
+                                    />
+
+                                    <label
+                                        htmlFor="cf-email"
+                                        className="webform-label"
+                                    >
+                                        Your Email
+                                    </label>
+                                </div>
+
+                                <div className="form-group d-flex flex-column-reverse">
+                                    <textarea
+                                        className="form-control"
+                                        rows="5"
+                                        name="cf-message"
+                                        id="cf-message"
+                                        placeholder="Your Message"
+                                    ></textarea>
+
+                                    <label
+                                        htmlFor="cf-message"
+                                        className="webform-label"
+                                    >
+                                        Message
+                                    </label>
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className="form-control"
+                                    id="submit-button"
+                                    name="submit"
+                                >
+                                    Send
+                                </button>
+                            </form>
+                        </div>
+
+                        <div className="mx-auto col-lg-4 col-md-6 col-12">
+                            <h3 className="my-4 pt-4 pt-lg-0">Say hello</h3>
+
+                            <a className="mb-1" href="tel:+573147828092">
+                                +57 314 7828092
+                            </a>
+
+                            <p>
+                                <a href="mailto:daniel.felicita@gmail.com">
+                                    daniel.felicita@gmail.com
+                                    <i className="fas fa-arrow-right custom-icon"></i>
+                                </a>
+                            </p>
+
+                            <ul className="social-links mt-2">
+                                <li>
+                                    <a
+                                        href="https://fb.com/tooplate"
+                                        rel="noopener"
+                                        className="fab fa-facebook"
+                                    ></a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#"
+                                        rel="noopener"
+                                        className="fab fa-twitter"
+                                    ></a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#"
+                                        rel="noopener"
+                                        className="fab fa-instagram"
+                                    ></a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#"
+                                        rel="noopener"
+                                        className="fab fa-linkedin"
+                                    ></a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="#"
+                                        rel="noopener"
+                                        className="fab fa-youtube"
+                                    ></a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

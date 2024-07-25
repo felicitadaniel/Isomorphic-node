@@ -30,7 +30,7 @@ app.prepare().then(() => {
         {
             title: 'Roku Developer',
             content:
-                "As a Roku developer at DIRECTV Latinoamérica, I played a critical role in creating a new channel from scratch. Using BrightScript, SceneGraph, and other tools, I developed reusable components like cards, badges, and carousels, significantly enhancing the channel's performance and design. Collaborating with my team, we delivered a high-quality channel that met client needs and adhered to strict deadlines.",
+                'At Roku, I contributed significantly to the SiriusXM project by enhancing its Roku channel’s functionality and performance. I implemented advanced features such as deep linking and developed a new, user-friendly interface using BrightScript and SceneGraph. My work involved detailed integration with backend services, ensuring a seamless experience across devices. This project showcased my ability to handle complex requirements and deliver high-quality, efficient solutions in a demanding environment.',
         },
     ]
 
