@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
         <>
             <Head>
                 <title>Daniel Felicita</title>
+                <link rel="icon" href="/images/favicon.ico" />
             </Head>
             <script
                 src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

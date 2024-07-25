@@ -5,6 +5,12 @@ const Home = () => {
     const [aboutMe, setAboutMe] = useState([])
     const [roles, setRoles] = useState([])
 
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: '',
+    })
+
     useEffect(() => {
         window.jQuery = $
         window.$ = $
@@ -86,6 +92,34 @@ const Home = () => {
             })
         })
     }, [])
+
+    const handleChange = (e) => {
+        const { name, value } = e.target
+        setFormData({ ...formData, [name]: value })
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            const response = await fetch('/api/sendemail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+
+            if (response.ok) {
+                // Handle successful response
+                console.log('Email sent successfully')
+            } else {
+                // Handle error response
+                console.error('Failed to send email')
+            }
+        } catch (error) {
+            console.log('Error: ', error)
+        }
+    }
 
     return (
         <div className="container-fluid">
@@ -377,8 +411,7 @@ const Home = () => {
                     <div className="row">
                         <div className="col-lg-6 col-md-6 col-12">
                             <form
-                                action="#"
-                                method="get"
+                                onSubmit={handleSubmit}
                                 className="contact-form webform"
                                 role="form"
                             >
@@ -386,51 +419,39 @@ const Home = () => {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        name="cf-name"
-                                        id="cf-name"
+                                        name="name"
+                                        id="name"
                                         placeholder="Your Name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        required
                                     />
-
-                                    <label
-                                        htmlFor="cf-name"
-                                        className="webform-label"
-                                    >
-                                        Full Name
-                                    </label>
                                 </div>
 
                                 <div className="form-group d-flex flex-column-reverse">
                                     <input
                                         type="email"
                                         className="form-control"
-                                        name="cf-email"
-                                        id="cf-email"
+                                        name="email"
+                                        id="email"
                                         placeholder="Your Email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
                                     />
-
-                                    <label
-                                        htmlFor="cf-email"
-                                        className="webform-label"
-                                    >
-                                        Your Email
-                                    </label>
                                 </div>
 
                                 <div className="form-group d-flex flex-column-reverse">
                                     <textarea
                                         className="form-control"
                                         rows="5"
-                                        name="cf-message"
-                                        id="cf-message"
+                                        name="message"
+                                        id="message"
                                         placeholder="Your Message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        required
                                     ></textarea>
-
-                                    <label
-                                        htmlFor="cf-message"
-                                        className="webform-label"
-                                    >
-                                        Message
-                                    </label>
                                 </div>
 
                                 <button
@@ -457,44 +478,6 @@ const Home = () => {
                                     <i className="fas fa-arrow-right custom-icon"></i>
                                 </a>
                             </p>
-
-                            <ul className="social-links mt-2">
-                                <li>
-                                    <a
-                                        href="https://fb.com/tooplate"
-                                        rel="noopener"
-                                        className="fab fa-facebook"
-                                    ></a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        rel="noopener"
-                                        className="fab fa-twitter"
-                                    ></a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        rel="noopener"
-                                        className="fab fa-instagram"
-                                    ></a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        rel="noopener"
-                                        className="fab fa-linkedin"
-                                    ></a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        rel="noopener"
-                                        className="fab fa-youtube"
-                                    ></a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>

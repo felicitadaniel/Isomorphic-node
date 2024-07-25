@@ -1,7 +1,8 @@
 const express = require('express')
 const next = require('next')
 const cors = require('cors')
-const nodemailer = require('nodemailer')
+const bodyParser = require('body-parser')
+const sendEmail = require('./service/sendEmail')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -9,7 +10,7 @@ const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
     const server = express()
-
+    server.use(bodyParser.json())
     // Datos de ejemplo
     const content = [
         {
@@ -44,24 +45,20 @@ app.prepare().then(() => {
         res.json(roles)
     })
 
-    server.post('/api/sendemail', (req, res) => {
-        const { from, name, text } = req.body
+    server.post('/api/sendemail', async (req, res) => {
+        const { email, name, message } = req.body
 
-        const mailOptions = {
-            from: from,
-            to: 'daniel.felicita@gmail.com',
-            subject: 'Contact from ' + name,
-            text: text,
+        if (!name || !email || !message) {
+            return res.status(400).json({ error: 'All fields are required' })
         }
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                console.log(error)
-                return res.status(500).send('Error al enviar el correo')
-            }
-            console.log('Correo enviado: ' + info.response)
-            res.status(200).send('Correo enviado correctamente')
-        })
+        const result = await sendEmail({ name, email, message })
+
+        if (result.success) {
+            res.status(200).json({ success: true })
+        } else {
+            res.status(500).json({ error: 'Failed to send email' })
+        }
     })
 
     server.all('*', (req, res) => {
