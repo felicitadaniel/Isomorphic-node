@@ -1,8 +1,8 @@
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import '../styles/custom.scss'
-// import '../styles/owl.carousel.scss'
-// import '../styles/owl.theme.default.scss'
-// import '../styles/all.scss'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '../styles/custom.scss'
+import '../styles/owl.carousel.scss'
+import '../styles/owl.theme.default.scss'
+import '../styles/all.scss'
 import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
                 integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
                 crossOrigin="anonymous"
             ></link>
-            <link
+            {/* <link
                 rel="stylesheet"
                 href="/Isomorphic-node/styles/custom.scss"
             ></link>
@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
             <link
                 rel="stylesheet"
                 href="/Isomorphic-node/styles/owl.theme.default.scss"
-            ></link>
+            ></link> */}
             <Component {...pageProps} />
         </>
     )
