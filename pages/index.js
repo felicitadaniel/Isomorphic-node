@@ -15,8 +15,8 @@ const Home = () => {
         window.jQuery = $
         window.$ = $
 
-        require('@/public/js/smoothscroll.js')
-        require('@/public/js/owl.carousel.min.js')
+        require('../public/js/smoothscroll.js')
+        require('../public/js/owl.carousel.min.js')
 
         const fetchContent = async () => {
             try {

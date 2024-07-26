@@ -1,13 +1,8 @@
-const path = require('path')
+const isProd = process.env.NODE_ENV === 'production'
+const repoName = 'Isomorphic-node'
 
 module.exports = {
-    webpack: (config) => {
-        config.resolve.alias['@'] = path.resolve(__dirname)
-        return config
-    },
-    assetPrefix:
-        process.env.NODE_ENV === 'production' ? '/Isomorphic-node/' : '',
-    basePath: '/Isomorphic-node',
+    assetPrefix: isProd ? `/${repoName}/` : '',
+    basePath: isProd ? `/${repoName}` : '',
     trailingSlash: true,
-    output: 'export',
 }
