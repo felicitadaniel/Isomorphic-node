@@ -6,7 +6,7 @@ module.exports = {
         return config
     },
     assetPrefix:
-        process.env.NODE_ENV === 'production' ? '/your-repo-name/' : '',
-    basePath: '/your-repo-name',
+        process.env.NODE_ENV === 'production' ? '/Isomorphic-node/' : '',
+    basePath: '/Isomorphic-node',
     trailingSlash: true,
 }
