@@ -24,9 +24,6 @@ jobs:
             - name: Build the project
               run: npm run build
 
-            - name: Export the project
-              run: npm run export
-
             - name: Deploy to GitHub Pages
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
