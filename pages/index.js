@@ -183,7 +183,7 @@ const Home = () => {
 
                         <div className="mt-lg-0 mt-3 mb-4 mb-lg-0">
                             <a
-                                href="/assets/Daniel_Felicita_Professional_Resume.pdf"
+                                href="/Isomorphic-node/assets/Daniel_Felicita_Professional_Resume.pdf"
                                 className="custom-btn btn"
                                 download="Daniel_Felicita_Professional_Resume.pdf"
                             >
@@ -203,7 +203,7 @@ const Home = () => {
                     <div className="row">
                         <div className="mx-auto col-lg-5 col-md-5 col-10">
                             <img
-                                src="/images/daniel_no_BG.png"
+                                src="/Isomorphic-node/images/daniel_no_BG.png"
                                 className="img-fluid"
                                 alt="Daniel Resume HTML Template"
                             />
@@ -299,7 +299,7 @@ const Home = () => {
                                         <div className="testimonials-thumb d-flex">
                                             <div className="testimonials-image">
                                                 <img
-                                                    src="/images/nikunj.jpeg"
+                                                    src="/Isomorphic-node/images/nikunj.jpeg"
                                                     className="img-fluid"
                                                     alt="testimonials image"
                                                 />
@@ -326,7 +326,7 @@ const Home = () => {
                                         <div className="testimonials-thumb d-flex">
                                             <div className="testimonials-image">
                                                 <img
-                                                    src="/images/hender.jpeg"
+                                                    src="/Isomorphic-node/images/hender.jpeg"
                                                     className="img-fluid"
                                                     alt="testimonials image"
                                                 />
@@ -353,7 +353,7 @@ const Home = () => {
                                         <div className="testimonials-thumb d-flex">
                                             <div className="testimonials-image">
                                                 <img
-                                                    src="/images/nelson.jpeg"
+                                                    src="/Isomorphic-node/images/nelson.jpeg"
                                                     className="img-fluid"
                                                     alt="testimonials image"
                                                 />
@@ -381,7 +381,7 @@ const Home = () => {
                                         <div className="testimonials-thumb d-flex">
                                             <div className="testimonials-image">
                                                 <img
-                                                    src="/images/juan.jpeg"
+                                                    src="/Isomorphic-node/images/juan.jpeg"
                                                     className="img-fluid"
                                                     alt="testimonials image"
                                                 />

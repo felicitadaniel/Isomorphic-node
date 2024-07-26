@@ -4,14 +4,13 @@ import '../styles/owl.carousel.scss'
 import '../styles/owl.theme.default.scss'
 import '../styles/all.scss'
 import Head from 'next/head'
-import Script from 'next/script'
 
 function MyApp({ Component, pageProps }) {
     return (
         <>
             <Head>
                 <title>Daniel Felicita</title>
-                <link rel="icon" href="/images/favicon.ico" />
+                <link rel="icon" href="/Isomorphic-node/images/favicon.ico" />
             </Head>
             <script
                 src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
