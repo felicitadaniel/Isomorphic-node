@@ -1,8 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '../styles/custom.scss'
 import '../styles/owl.carousel.scss'
 import '../styles/owl.theme.default.scss'
 import '../styles/all.scss'
+import '../styles/custom.scss'
+
 import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
