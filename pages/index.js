@@ -254,7 +254,7 @@ const Home = () => {
 
                         <div className="col-lg-5 mx-auto col-md-6 col-12">
                             <img
-                                src="images/true-agency.jpg"
+                                src="/Isomorphic-node/images/true-agency.jpg"
                                 className="about-image img-fluid"
                                 alt="Ben's Resume HTML Template"
                             />
