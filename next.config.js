@@ -9,4 +9,5 @@ module.exports = {
         process.env.NODE_ENV === 'production' ? '/Isomorphic-node/' : '',
     basePath: '/Isomorphic-node',
     trailingSlash: true,
+    output: 'export',
 }
